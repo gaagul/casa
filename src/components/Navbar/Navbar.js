@@ -4,6 +4,7 @@ import {FaRegTimesCircle} from 'react-icons/fa'
 import {BsFillHouseFill} from 'react-icons/bs'
 
 import './Navbar.css'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
 
@@ -13,9 +14,9 @@ const Navbar = () => {
     return (
         <div className='navbar'>
             <div className='container'>
-                <h1><span><BsFillHouseFill />CA</span>SA</h1>
+                <Link to='/'><h1><span><BsFillHouseFill />CA</span>SA</h1></Link>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                    <li><a href='#'>Home</a></li>
+                    <li><Link to='/'>Home</Link></li>
                     <li><a href='#'>RENT</a></li>
                     <li><a href='#'>BUY</a></li>
                     <li><a href='#'>SELL</a></li>

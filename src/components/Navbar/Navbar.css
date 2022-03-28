@@ -14,7 +14,9 @@
     align-items: center;
     padding:1rem;
 }
-
+.navbar a{
+    text-decoration: none;
+}
 .navbar span {
     color: #5651e5;
 }
