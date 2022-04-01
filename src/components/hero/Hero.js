@@ -12,7 +12,7 @@ const Hero = () => {
                 <form className='search'>
 
                     <div>
-                        <input type='text' placeholder='Enter Keyword..' />
+                        <input type='text' placeholder='Enter Location' />
                     </div>
                     <div className='radio'> 
                         <input type='radio' checked />

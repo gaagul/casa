@@ -11,10 +11,9 @@ const Best = () => {
         <div className='best'>
             <h1>Find Best Rated Properties</h1>
             <div>
-                <p><span className='bold'>All</span></p>
-                <p>Commercial</p>
-                <p>Residential</p>
-                <p>Agricultural</p>
+                <p><span className='bold'>ALL</span></p>
+                <p>BUY</p>
+                <p>RENT</p>
             </div>
             <div className='container'>
                 <img src={Apt1} alt='' />
