@@ -1,32 +1,26 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import Hero from './components/hero/Hero';
-import Featured from './components/featured/Featured';
-import Best from './components/best/Best';
-import Footer from './components/footer/Footer';
+import Home from './Pages/Home';
 import About from './Pages/About';
-import Properties from './Pages/Properties';
-import SingleProperty from './Pages/SingleProperty';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-
+import Rent from './Pages/Rent';
+import {BrowserRouter,Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
+      
     <>
-      <Router>
-        <Navbar />
-        <Hero />
-        <Best />
-        <Featured />
-        <Footer />
-        <Routes>
-            <Route path="/" exact component />
-            <Route path="Properties" exact component={Properties} />
-            <Route path="About" exact component={About} />
-        </Routes>
-      </Router>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+      <Route exact path="/" element={<Home/>}/>
+      <Route path="/Rent"  element={<Rent />} />
+      <Route path="/About"  element={<About />} />
+      </Routes>
+    </BrowserRouter>
+      
     </>
+      
   );
 }
 

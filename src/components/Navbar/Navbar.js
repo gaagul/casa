@@ -9,7 +9,11 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
 
     const[click, setClick] = useState(false)
-    const handleClick = () => setClick(!click)
+    const handleClick = () => {
+        setClick(!click);
+        
+        
+    }
 
     return (
         <div className='navbar'>
@@ -17,7 +21,7 @@ const Navbar = () => {
                 <Link to='/'><h1><span><BsFillHouseFill />CA</span>SA</h1></Link>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li><Link to='/'>Home</Link></li>
-                    <li><a href='#'>RENT</a></li>
+                    <li><Link to='/Rent'>RENT</Link></li>
                     <li><a href='#'>BUY</a></li>
                     <li><a href='#'>SELL</a></li>
                 </ul>
