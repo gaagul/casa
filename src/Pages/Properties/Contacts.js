@@ -1,24 +1,24 @@
 import React from 'react';
 import './Contacts.css';
+import Button from '@material-ui/core/Button';
+import Apt1 from '../../assets/apt1.jpeg'
 
 
 function Contacts() {
   return (
 
-    <div className='contact-card'>
+    <div className='card'>
+      <div className='card-header card-image'><img src={Apt1} /></div>
+      <div className='card-body'>
+          hfkwflshfljdsfmslanlsnclsndkvns;dvnsnv;snkvsnvsnv
+      </div>
+      <div className='card-footer'>
+        <button className='c-btn'>Details</button>
+        <button className='c-btn c-btn-outline'>Contact Seller</button>
+      </div>
 
-      <image src="#" />
-      <h3>Propery name</h3>
-      <div className="info-group">
-        <img src="#" />
-        <p>(212) 555-1234</p>
-      </div>
-      <div className="info-group">
-        <img src="./images/mail-icon.png" />
-        <p>mr.whiskaz@catnap.meow</p>
-      </div>
+      
     </div>
-
   );
 }
 

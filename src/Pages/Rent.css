@@ -1,0 +1,10 @@
+.layout{ 
+   display: grid;
+   
+   grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+   padding-block: 2rem;
+   gap: 1rem;
+   
+   
+   margin-inline: 1rem;
+}
