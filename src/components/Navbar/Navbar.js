@@ -3,29 +3,41 @@ import {HiOutlineMenuAlt4} from 'react-icons/hi'
 import {FaRegTimesCircle} from 'react-icons/fa'
 import {BsFillHouseFill} from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
-
+import Authentication from '../../auth'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
+import { auth } from '../../firebase'
+import Profile from './profile'
+
 
 const Navbar = () => {
+    
 
     const[click, setClick] = useState(false)
+    const[login,setLogin] = useState(false)
+    auth.onAuthStateChanged((user)=>{
+        if(user)
+            setLogin(true)
+        else
+            setLogin(false)
+    })
     const handleClick = () => {
         setClick(!click);
         }
     let navigate = useNavigate();
 
     return (
-        <div className='navbar'>
-            <div className='container'>
+        <div className='nnavbar'>
+            <div className='ncontainer'>
                 <Link to='/'><h1><span><BsFillHouseFill />CA</span>SA</h1></Link>
-                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+                <ul className={click ? 'nnav-menu active' : 'nnav-menu'}>
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/Rent'>RENT</Link></li>
                     <li><a href='#'>BUY</a></li>
                     <li><Link to='/Sell'>SELL</Link></li>
                 </ul>
-                <button className='btn' onClick={()=>{navigate("/about")}}>Contact Us</button>
+                {login?<Profile />:<button className='nbtn' onClick={()=>{navigate("/Signin")}}>Sign In</button>}
+                
                 <div className='hamburger' onClick={handleClick}>
                     {click ? (<FaRegTimesCircle className='icon' />) : (<HiOutlineMenuAlt4 className='icon' />)}
                 
