@@ -7,14 +7,14 @@ import Apt1 from '../../assets/apt1.jpeg'
 function Contacts() {
   return (
 
-    <div className='card'>
-      <div className='card-header card-image'><img src={Apt1} /></div>
-      <div className='card-body'>
+    <div className='ccard'>
+      <div className='ccard-header ccard-image'><img src={Apt1} /></div>
+      <div className='ccard-body'>
           hfkwflshfljdsfmslanlsnclsndkvns;dvnsnv;snkvsnvsnv
       </div>
-      <div className='card-footer'>
-        <button className='c-btn'>Details</button>
-        <button className='c-btn c-btn-outline'>Contact Seller</button>
+      <div className='ccard-footer'>
+        <button className='cc-btn'>Details</button>
+        <button className='cc-btn cc-btn-outline'>Contact Seller</button>
       </div>
 
       

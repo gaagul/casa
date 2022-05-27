@@ -1,7 +1,7 @@
 *,*::before,*::after{
     font-family: 'Open Sans',sans-serif;
     }
-.card{
+.ccard{
     
     padding: 1rem;
     border: none;
@@ -10,14 +10,14 @@
     
 }
 
-.card-header{
+.ccard-header{
     font-size: 1.5rem;
     margin-bottom: .5rem;
 }
-.card-header.card-image{
+.ccard-header.ccard-image{
     overflow: hidden;
 }
-.card-header.card-image>img{
+.ccard-header.ccard-image>img{
     display: block;
     width: 100%;
     aspect-ratio: 16/9; 
@@ -25,13 +25,13 @@
     object-position: center;
     
 }
-.card-body{
+.ccard-body{
     font-size: .9rem;
 }
-.card-footer{
+.ccard-footer{
     margin-top: 1rem;
 }
-.c-btn{
+.cc-btn{
     background: hsl(200,50%,50%);
     border: none;
     font-size: 1rem;
@@ -39,17 +39,17 @@
     border-radius: .25rem;
     cursor: pointer;
 }
-.c-btn:hover , .c-btn:focus{
+.cc-btn:hover , .cc-btn:focus{
     background: hsl(200,50%,60%);
 }
-.c-btn.c-btn-outline{
+.cc-btn.cc-btn-outline{
     background: none;
     border: 1px solid hsl(200,50%,50%);
 
 }
-.c-btn.c-btn-outline:hover, .c-btn.c-btn-outline:focus{
+.cc-btn.cc-btn-outline:hover, .cc-btn.cc-btn-outline:focus{
     background: hsl(200,50%,90%);
 }
-.c-btn + .c-btn{
+.cc-btn + .cc-btn{
     margin-left: .25rem;
 }
