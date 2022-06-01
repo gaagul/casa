@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-      <Route exact path="/" element={<SingleProperty/>}/>
+      <Route exact path="/" element={<Home/>}/>
       <Route path="/Rent"  element={<Rent />} />
       <Route path="/Signup"  element={<Signup />} />
       <Route path="/Signin"  element={<Signin />} />
