@@ -10,6 +10,7 @@ import Featured from './components/Featured';
 
 import {BrowserRouter,Routes, Route} from 'react-router-dom';
 import Signin from './Pages/Signin';
+import Sell from './Pages/Sell';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/Rent/:id"  element={<SingleProperty />} />
       <Route path="/Signup"  element={<Signup />} />
       <Route path="/Signin"  element={<Signin />} />
+      <Route path="/Sell"  element={<Sell />} />
       </Routes>
     </BrowserRouter>
       

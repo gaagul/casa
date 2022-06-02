@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import Authentication from '../../auth'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
-import { auth } from '../../firebase'
+import { auth } from '../../firebase/firebaseApp'
 import Profile from './profile'
 
 
@@ -20,7 +20,7 @@ const Navbar = () => {
         if(user)
             {
             setLogin(true)
-            console.log('This is the user: ', user)
+            // console.log('This is the user: ', user)
             }
         else
             setLogin(false)

@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut} from "firebase/auth"
-import { auth } from "./firebase"
+import { auth } from "./firebase/firebaseApp"
 class Authentication {
     static signUp=(email,password,onComplete)=>{
         createUserWithEmailAndPassword(auth,email,password).then((user)=>{
