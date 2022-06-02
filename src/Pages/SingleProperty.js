@@ -7,6 +7,7 @@ import house2 from '../assets/property/property-img-3.jpg'
 import house3 from '../assets/property/property-img-4.jpg'
 import house4 from '../assets/property/property-img-5.jpg'
 import fp from '../assets/property/floor-plan-1.png'
+import Featured from '../components/Featured';
 
 
 const SingleProperty = () => {
@@ -98,6 +99,10 @@ const SingleProperty = () => {
                                         </li>
                                     </ul>
                                     </div>
+                                    <div class="blog-info details mb-30">
+                                        <h5 class="mb-4">Description</h5>
+                                        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum rerum beatae consequatur, totam fugit, alias fuga aliquam quod tempora a nisi esse magnam nulla quas! Error praesentium, vero dolorum laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum rerum beatae consequatur, totam fugit.</p>
+                                    </div>
                                     
                                 </div>
                             </div>
@@ -145,7 +150,7 @@ const SingleProperty = () => {
                                 </ul>
                             </div>
                             
-                            <div className="floor-plan property wprt-image-video w50 pro">
+                            <div className="floor-plan property wprt-image-video w50 pro mb-3">
                                 <h5>Floor Plans</h5>
                                 <img alt="image" src={fp}></img>
                             </div>
@@ -153,26 +158,7 @@ const SingleProperty = () => {
                         
                         
                         
-                        <aside class="col-lg-4 col-md-12 car">
-                            <div class="single widget">
-                                <div className="schedule widget-boxed mt-33 mt-0">
-                                        <div className="widget-boxed-header">
-                                            <h4><i className="fa fa-calendar pr-3 padd-r-10"></i>Schedule a Tour</h4>
-                                        </div>
-                                        <div className="widget-boxed-body">
-                                            <div className="row">
-                                                <div className="col-lg-6 col-md-12 book">
-                                                    <input type="text" id="reservation-date" data-lang="en" data-large-mode="true" data-min-year="2017" data-max-year="2020" data-disabled-days="08/17/2017,08/18/2017" data-id="datedropper-0" data-theme="my-style" className="form-control picker-input" readonly=""></input>
-                                                </div>
-                                                <div className="col-lg-6 col-md-12 book2">
-                                                    <input type="text" id="reservation-time" className="form-control td-input" readonly=""></input>
-                                                </div>
-                                            </div>
-                                            <a href="payment-method.html" className="btn reservation btn-radius theme-btn full-width mrg-top-10">Submit Request</a>
-                                        </div>
-                                </div>
-                            </div>
-                            
+                        <aside class="col-lg-4 col-md-12 car">                          
                             
                             <div class="widget-boxed mt-33 mt-5">
                                     <div class="widget-boxed-header">
@@ -206,7 +192,7 @@ const SingleProperty = () => {
                         </aside>
 
                     </div>
-
+                    <Featured/>
                 </div>
             </section>
             

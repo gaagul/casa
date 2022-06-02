@@ -1,0 +1,59 @@
+
+
+@media screen and (max-width: 991px)
+{
+.item {
+    padding-bottom: 20px;
+}
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.homes-list {
+    padding-left: 0px;
+    /* padding-bottom: 0.9rem; */
+    margin: 0;
+}
+
+.pb-3, .py-3 {
+    padding-bottom: 1rem!important;
+}
+
+.homes-list li {
+    padding-left:1rem;
+    width: 45%;
+    float: left;
+    font-size: 14px;
+    /* line-height: 40px; */
+    list-style: none;
+    /* color: #FF385C; */
+}
+
+.the-icons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    line-height: 17px !important;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+.footer img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
