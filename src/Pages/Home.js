@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
     <Hero />
-    <Best />
+    
     <Featured />
     <Footer />
     </>
