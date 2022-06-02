@@ -2,6 +2,7 @@ import React,{useRef} from 'react'
 import {Form, Button, Card, Container} from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import Authentication from '../auth'
+import{Link} from 'react-router-dom'
 
 
 
@@ -46,7 +47,7 @@ function Signup() {
             </Form>  
         </Card.Body>
     </Card>
-    <div className='w-100 text-center mt-2'>Already have an account? Log In</div>
+    <div className='w-100 text-center mt-2'>Already have an account?  <Link to="/Signin">Sign In</Link></div>
             </div>
 
     </Container>

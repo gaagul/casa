@@ -16,8 +16,12 @@ const Navbar = () => {
     const[click, setClick] = useState(false)
     const[login,setLogin] = useState(false)
     auth.onAuthStateChanged((user)=>{
+
         if(user)
+            {
             setLogin(true)
+            console.log('This is the user: ', user)
+            }
         else
             setLogin(false)
     })
@@ -33,8 +37,8 @@ const Navbar = () => {
                 <ul className={click ? 'nnav-menu active' : 'nnav-menu'}>
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/Rent'>RENT</Link></li>
-                    <li><a href='#'>BUY</a></li>
-                    <li><Link to='/Sell'>SELL</Link></li>
+                    {/* <li><a href='#'>BUY</a></li>
+                    <li><Link to='/Sell'>SELL</Link></li> */}
                 </ul>
                 {login?<Profile />:<button className='nbtn' onClick={()=>{navigate("/Signin")}}>Sign In</button>}
                 

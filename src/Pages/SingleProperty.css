@@ -16,11 +16,6 @@ section.single-proper.details {
     margin-right: auto;
     margin-left: auto;
 }
-@media (min-width: 576px){
-.container, .container-sm {
-    max-width: 540px;
-}
-}
 .row {
     
     display: flex;
@@ -63,35 +58,6 @@ section.single-proper.details {
 }
 .single-proper .mb-30{
     margin-bottom: 30px;
-}
-
-
-.carousel-inner {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-.carousel-item {
-    position: relative;
-    display: none;
-    float: left;
-    width: 100%;
-    margin-right: -100%;
-    backface-visibility: hidden;
-    transition: transform .6s ease-in-out;
-}
-img {
-    vertical-align: middle;
-    border-style: none;
-}
-.homepage-4 img {
-    display: inline-block;
-    max-width: 100%;
-    height: auto;
-}
-.listing-details-sliders .img-fluid {
-    max-width: 100%;
-    height: auto;
 }
 .homes-content.details.mb-30{
     padding: 1.5rem !important;
@@ -139,41 +105,125 @@ li {
     font-weight: 600;
     color: #555 !important;
 }
-.inner-pages .blog .homes-content.details span {
-    font-size: 1rem;
-    
+.widget-boxed.mt-5, .widget-boxed.my-5, .main-search-field.mt-5 {
+    margin-top: 30px !important;
 }
-.wprt-image-video.w50.pro{
+.widget-boxed {
+    background: #fff;
+}
+
+.widget-boxed {
+    border-radius: 6px;
+    padding: 1.5rem;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    z-index: 90;
+    margin-bottom: 0px;
+    position: relative;
+    border: 1px solid #eaeff5;
+}
+.widget-boxed-header {
+    padding-bottom: 1.5rem;
+    padding-top: 0px;
+    border-bottom: 1px solid #eaeff5;
+}
+.widget-boxed-body {
+    padding: 1.5rem 0 0;
+}
+.agent-contact-form-sidebar {
+    width: 100%;
+    padding-top: 20px;
+    border-top: 1px solid #eeeeee;
+}
+.sidebar-widget .author-box img {
+    float: left;
+    width: 85px;
+    height: 85px;
+    border: 4px solid #fff;
+    margin-right: 15px;
+}
+.sidebar-widget ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+agent-contact-form-sidebar {
+    width: 100%;
+    padding-top: 20px;
+    border-top: 1px solid #eeeeee;
+}
+.agent-contact-form-sidebar input {
+    width: 100%;
+    height: 45px;
+    border: 1px solid #dae2e9;
+    background-color: #fff;
+    padding: 15px;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    color: #7e8c99;
+    margin-bottom: 1rem;
+}
+button, input {
+    overflow: visible;
+}
+.agent-contact-form-sidebar textarea {
+    border: 1px solid #dae2e9 !important;
+    background-color: #fff;
+    padding-left: 15px;
+    width: 100%;
+    height: 100px;
+    color: #7e8c99;
+}
+textarea {
+    /* height: 130px; */
+}
+.th-8 .first-footer input, textarea, select {
+    margin-bottom: 0px;
+    /* width: auto; */
+}
+.th-8 input, textarea, select {
+    /* width: 100%; */
+    /* height: 50px; */
+    padding: 9px;
+    /* margin-bottom: 0px; */
+    /* border: 1px solid #ddd; */
+    border-radius: 5px;
+    font-weight: 400;
+    /* color: #000; */
+    font-family: 'Lato', sans-serif;
+    background: #f8f8f8;
+}
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+.agent-contact-form-sidebar .multiple-send-message {
+    background-color: #FF385C;
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: capitalize;
+    padding-top: 12px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    /* -webkit-transition: all .3s ease; */
+    transition: all .3s ease;
+}
+.blog .blog-info.details {
+    padding: 0;
+    border-bottom: 0px;
+}
+.inner-pages .blog .blog-info.details, .listing-details-sliders.mb-30, .homes-content.details.mb-30, .property-location, .reviews.comments, .reviews.leve-comments, .wprt-image-video.w50.pro, .ag-de .similar-property, .ag-de .portfolio.py-0.age, .det .similar-property {
     padding: 1.5rem !important;
     background: #fff;
     border: 1px solid #eaeff5;
+    -webkit-box-shadow: 0 0 10px 1px rgb(71 85 95 / 8%);
+    box-shadow: 0 0 10px 1px rgb(71 85 95 / 8%);
 }
-.wprt-image-video.w50.pro {
+.single-proper .mb-30, .property-location.map {
     margin-bottom: 30px !important;
 }
-@media screen and (max-width: 768px){
-.blog .blog-pots img {
-    width: 100%;
+.mb-4, .my-4 {
+    margin-bottom: 1.5rem!important;
 }
-}
-@media only screen and (max-width: 768px){
-.wprt-image-video.w50 img {
-    height: auto;
-}
-}
-@media only screen and (max-width: 1024px){
-.wprt-image-video.w50 img {
-    height: 490px;
-}
-}
-
-img {
-    display: inline-block;
-    max-width: 100%;
-    height: auto;
-}
-img {
-    vertical-align: middle;
-    border-style: none;
-}
-
