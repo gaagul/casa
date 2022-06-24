@@ -227,3 +227,9 @@ textarea {
 .mb-4, .my-4 {
     margin-bottom: 1.5rem!important;
 }
+.blog-info.{
+    padding: 1.5rem !important;
+    background: #fff;
+    border: 1px solid #eaeff5;
+    box-shadow: 0 0 10px 1px rgb(71 85 95 / 8%);
+}

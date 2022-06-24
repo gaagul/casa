@@ -34,7 +34,7 @@ export default function Form() {
     sqft_livabove : getElementVal("sqft_livabove")
   }
   const requestOptions = {method: 'POST', headers : {'Content-Type':'application/json'}, body: JSON.stringify({inputData})}
-  fetch("http://127.0.0.1:5000/predict", requestOptions).then(res=>res.json()).then(res=>setPredictedPrice(Math.floor((res/100)*2)))
+  fetch("http://127.0.0.1:5000/predict", requestOptions).then(res=>res.json()).then(res=>setPredictedPrice(Math.floor((res/100)*4)))
 }
 
 
