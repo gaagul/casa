@@ -15,6 +15,7 @@ function Contacts(props) {
           {props.name}
       </h4>
       <p>PRICE : {props.price}</p>
+      <p>LOCATION : {props.location}</p>
       <ul className="homes-list clearfix pb-3">
                     <li className="the-icons">
                         <i className="flaticon-bed mr-2" aria-hidden="true"></i>
