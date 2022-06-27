@@ -21,6 +21,7 @@ function App() {
       <Routes>
       <Route exact path="/" element={<Home/>}/>
       <Route path="/Rent"  element={<Rent />} />
+      <Route path="/Rent/q/:place"  element={<Rent />} />
       <Route path="/Rent/properties/:id"  element={<SingleProperty />} />
       <Route path="/Signup"  element={<Signup />} />
       <Route path="/Signin"  element={<Signin />} />
