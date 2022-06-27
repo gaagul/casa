@@ -9,7 +9,6 @@ import house4 from '../assets/property/property-img-5.jpg'
 import fp from '../assets/property/floor-plan-1.png'
 import Featured from '../components/Featured';
 import { useParams } from 'react-router-dom';
-import { async } from '@firebase/util';
 import { db } from '../firebase/firebaseApp';
 import { getDoc,doc } from 'firebase/firestore';
 
