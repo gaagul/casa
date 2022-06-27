@@ -9,7 +9,7 @@ const getElementVal = (id) => {
 };
 
 export default function Form() {
-  const [imgUrl, setImgUrl] = useState(null);
+  const [imgUrl, setImgUrl] = useState([]);
   const [progresspercent, setProgresspercent] = useState(0);
   const [predictedPrice, setPredictedPrice] = useState(0.0);
 
@@ -17,35 +17,44 @@ export default function Form() {
 
   const runModel = () => {
     const inputData = {
-    nobed: getElementVal("numberofbedrooms"),
-    nobath : getElementVal("numberofbathrooms"),
-    sqft_living : getElementVal("sqft_living"),
-    sqft_total : getElementVal("sqft_total"),
-    nof : getElementVal("numberoffloors"),
-    waterfront : getElementVal("waterfront"),
-    view : getElementVal("directionoffront"),
-    condition : getElementVal("condition"),
-    sqft_above : getElementVal("sqft_above"),
-    sqft_basement : getElementVal("sqft_basement"),
-    yr_built : getElementVal("yr_built"),
-    yr_renovated : getElementVal("yr_renovated"),
-    latitude : getElementVal("latitude"),
-    longitude : getElementVal("longitude"),
-    sqft_livabove : getElementVal("sqft_livabove")
-  }
-  const requestOptions = {method: 'POST', headers : {'Content-Type':'application/json'}, body: JSON.stringify({inputData})}
-  fetch("http://127.0.0.1:5000/predict", requestOptions).then(res=>res.json()).then(res=>setPredictedPrice(Math.floor((res/100)*4)))
-}
-
-
+      nobed: getElementVal("numberofbedrooms"),
+      nobath: getElementVal("numberofbathrooms"),
+      sqft_living: getElementVal("sqft_living"),
+      sqft_total: getElementVal("sqft_total"),
+      nof: getElementVal("numberoffloors"),
+      waterfront: getElementVal("waterfront"),
+      view: getElementVal("directionoffront"),
+      condition: getElementVal("condition"),
+      sqft_above: getElementVal("sqft_above"),
+      sqft_basement: getElementVal("sqft_basement"),
+      yr_built: getElementVal("yr_built"),
+      yr_renovated: getElementVal("yr_renovated"),
+      latitude: getElementVal("latitude"),
+      longitude: getElementVal("longitude"),
+      sqft_livabove: getElementVal("sqft_livabove"),
+    };
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ inputData }),
+    };
+    fetch("http://127.0.0.1:5000/predict", requestOptions)
+      .then((res) => res.json())
+      .then((res) => setPredictedPrice(Math.floor((res / 100) * 4)));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const file = e.target[0]?.files[0];
+    let files = [];
+    for (let i = 0; i < e.target[0].files.length; ++i) {
+      const file = e.target[0].files[i];
+      file["id"] = Math.random();
+      files.push(file);
+    }
 
-    if (!file) return;
-
-    const storageRef = ref(storage, `${file.name}`);
+    if (!files) return;
+    files.map((file) => {
+      const storageRef = ref(storage, `${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
@@ -62,17 +71,20 @@ export default function Form() {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("DownloadURL: " + downloadURL);
-          setImgUrl(downloadURL);
+          setImgUrl((prevState)=>[...prevState, downloadURL]);
         });
       }
     );
+    });
+
+    
     //File upload completed to Firebase
 
     var hlocation = getElementVal("hlocation");
     var sqft_total = getElementVal("sqft_total");
     var name = getElementVal("nameofproperty");
     var sqft_living = getElementVal("sqft_living");
-    var nobed= getElementVal("numberofbedrooms");
+    var nobed = getElementVal("numberofbedrooms");
     var nobath = getElementVal("numberofbathrooms");
     var nogarages = getElementVal("numberofgarages");
     var nof = getElementVal("numberoffloors");
@@ -92,43 +104,41 @@ export default function Form() {
     var seller_number = getElementVal("seller_number");
 
     try {
-        const docRef = await addDoc(collection(db, "sellForm"), {
-          Location: hlocation,
-          Sqft_total: sqft_total,
-          Name_of_Property: name,
-          Sqft_living: sqft_living,
-          Number_of_Bedrooms: nobed,
-          Number_of_Bathrooms: nobath,
-          Number_of_Garages: nogarages,
-          Number_of_Floors: nof,
-          Waterfront: waterfront,
-          Description: desc,
-          View: view,
-          Condition: condition,
-          Sqft_above: sqft_above,
-          Price : Price,
-          Image_URL: imgUrl,
-          Sqft_basement : sqft_basement,
-          yr_built : yr_built ,
-          yr_renovated : yr_renovated ,
-          latitude : latitude ,
-          longitude : longitude ,
-          sqft_livabove : sqft_livabove,
-          seller_name : seller_name,
-          seller_number : seller_number
-
+      const docRef = await addDoc(collection(db, "sellForm"), {
+        Location: hlocation,
+        Sqft_total: sqft_total,
+        Name_of_Property: name,
+        Sqft_living: sqft_living,
+        Number_of_Bedrooms: nobed,
+        Number_of_Bathrooms: nobath,
+        Number_of_Garages: nogarages,
+        Number_of_Floors: nof,
+        Waterfront: waterfront,
+        Description: desc,
+        View: view,
+        Condition: condition,
+        Sqft_above: sqft_above,
+        Price: Price,
+        Image_URL: imgUrl,
+        Sqft_basement: sqft_basement,
+        yr_built: yr_built,
+        yr_renovated: yr_renovated,
+        latitude: latitude,
+        longitude: longitude,
+        sqft_livabove: sqft_livabove,
+        seller_name: seller_name,
+        seller_number: seller_number,
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
-
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type="file" />
+        <input type="file" multiple  />
         <div class="row">
           <div class="col-md-6 mb-4 pb-2">
             <div class="form-outline">
@@ -242,7 +252,7 @@ export default function Form() {
           </div>
         </div>
         <div class="row">
-        <div class="col-md-6 mb-4 pb-2">
+          <div class="col-md-6 mb-4 pb-2">
             <div class="form-outline">
               <input
                 type="number"
@@ -347,7 +357,7 @@ export default function Form() {
                 class="form-control form-control-lg"
               />
               <label class="form-label" for="sqft_livabove">
-              sqft_living_above
+                sqft_living_above
               </label>
             </div>
           </div>
@@ -373,7 +383,7 @@ export default function Form() {
                 class="form-control form-control-lg"
               />
               <label class="form-label" for="longitude">
-              Longitude
+                Longitude
               </label>
             </div>
           </div>
@@ -387,7 +397,7 @@ export default function Form() {
                 class="form-control form-control-lg"
               />
               <label class="form-label" for="seller_name">
-              Seller Name
+                Seller Name
               </label>
             </div>
           </div>
@@ -418,7 +428,9 @@ export default function Form() {
           </label>
         </div>
         <div class="mt-4 pt-2">
-          <button class="btn btn-primary btn-lg btn-block" onClick={runModel}>Run Model</button>
+          <button class="btn btn-primary btn-lg btn-block" onClick={runModel}>
+            Run Model
+          </button>
         </div>
 
         <div class="form-outline mb-4" style={{ marginTop: "20px" }}>
