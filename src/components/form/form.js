@@ -45,6 +45,7 @@ export default function Form() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setImgUrl([])
     let files = [];
     for (let i = 0; i < e.target[0].files.length; ++i) {
       const file = e.target[0].files[i];

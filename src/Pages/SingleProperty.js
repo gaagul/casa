@@ -11,6 +11,7 @@ import Featured from '../components/Featured';
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase/firebaseApp';
 import { getDoc,doc } from 'firebase/firestore';
+import Slider from '../components/carousel/carousel';
 
 
 
@@ -49,7 +50,7 @@ const SingleProperty = () => {
                                                     <h3>{property.Name_of_Property}</h3>
                                                     <div className="mt-0">
                                                         <a href="#listing-location" className="listing-address">
-                                                            <i className="fa fa-map-marker pr-2 ti-location-pin mrg-r-5"></i>77 - Central Park South, NYC
+                                                            <i className="fa fa-map-marker pr-2 ti-location-pin mrg-r-5"></i>{property.Location}
                                                         </a>
                                                     </div>
                                                 </div>
@@ -57,10 +58,10 @@ const SingleProperty = () => {
                                             <div className="single detail-wrapper mr-2">
                                                 <div className="detail-wrapper-body">
                                                     <div className="listing-title-bar">
-                                                        <h4>{property.Price}</h4>
+                                                        <h4>Rs.{property.Price}</h4>
                                                         <div className="mt-0">
                                                             <a href="#listing-location" className="listing-address">
-                                                                <p>$ 1,200 / sq ft</p>
+                                                                <p>{property.Sqft_total} Sqft</p>
                                                             </a>
                                                         </div>
                                                     </div>
@@ -70,7 +71,9 @@ const SingleProperty = () => {
                                     </section> 
                                     <div id="listingDetailsSlider" className="carousel listing-details-sliders slide mb-30">
                                     <h5 className="mb-4">Gallery</h5>
-                                    <div className="carousel-inner">
+                                    {console.log("Images in SPA:"+property)}
+                                    {property && <Slider images={property.Image_URL}/>}
+                                    {/* <div className="carousel-inner">
                                         <div className="item carousel-item active" data-slide-number="0">
                                             <img src={property.Image_URL} className="img-fluid" alt="slider-listing"></img>
                                         </div>
@@ -90,9 +93,9 @@ const SingleProperty = () => {
                                         <a className="carousel-control left" href="#listingDetailsSlider" data-slide="prev"><i className="fa fa-angle-left"></i></a>
                                         <a className="carousel-control right" href="#listingDetailsSlider" data-slide="next"><i className="fa fa-angle-right"></i></a>
 
-                                    </div>
+                                    </div> */}
                                     {/* <!-- main slider carousel nav controls --> */}
-                                    <ul className="carousel-indicators smail-listing list-inline">
+                                    {/* <ul className="carousel-indicators smail-listing list-inline">
                                         <li className="list-inline-item">
                                             <a id="carousel-selector-0" className="selected" data-slide-to="0" data-target="#listingDetailsSlider">
                                                 <img src={house} className="img-fluid" alt="listing-small"></img>
@@ -118,11 +121,11 @@ const SingleProperty = () => {
                                                 <img src={house4} className="img-fluid" alt="listing-small"></img>
                                             </a>
                                         </li>
-                                    </ul>
+                                    </ul> */}
                                     </div>
                                     <div className="blog-info details mb-30">
                                         <h5 className="mb-4">Description</h5>
-                                        <p className="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum rerum beatae consequatur, totam fugit, alias fuga aliquam quod tempora a nisi esse magnam nulla quas! Error praesentium, vero dolorum laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum rerum beatae consequatur, totam fugit.</p>
+                                        <p className="mb-3">{property.Description}</p>
                                     </div>
                                     
                                 </div>
@@ -146,11 +149,11 @@ const SingleProperty = () => {
                                     </li>
                                     <li>
                                         <span className="font-weight-bold mr-1">Property Price:</span>
-                                        <span className="det">{property.Price}</span>
+                                        <span className="det">Rs.{property.Price}</span>
                                     </li>
                                     <li>
                                         <span className="font-weight-bold mr-1">Rooms:</span>
-                                        <span className="det">6</span>
+                                        <span className="det">{property.Number_of_Bedrooms}</span>
                                     </li>
                                     <li>
                                         <span className="font-weight-bold mr-1">Bedrooms:</span>
@@ -158,15 +161,15 @@ const SingleProperty = () => {
                                     </li>
                                     <li>
                                         <span className="font-weight-bold mr-1">Bath:</span>
-                                        <span className="det">4</span>
+                                        <span className="det">{property.Number_of_Bathrooms}</span>
                                     </li>
                                     <li>
                                         <span className="font-weight-bold mr-1">Garages:</span>
-                                        <span className="det">2</span>
+                                        <span className="det">{property.Number_of_Garages}</span>
                                     </li>
                                     <li>
                                         <span className="font-weight-bold mr-1">Year Built:</span>
-                                        <span className="det">10/6/2020</span>
+                                        <span className="det">{property.yr_built}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -188,14 +191,12 @@ const SingleProperty = () => {
                                     <div className="widget-boxed-body">
                                         <div className="sidebar-widget author-widget2">
                                             <div className="author-box clearfix">
-                                                <img src="images/testimonials/ts-1.jpg" alt="author-image" className="author__img"></img>
-                                                <h4 className="author__title">Lisa Clark</h4>
+                                                <h4 className="author__title">{property.seller_name}</h4>
                                                 <p className="author__meta">Agent of Property</p>
                                             </div>
                                             <ul className="author__contact">
-                                                <li><span className="la la-map-marker"><i className="fa fa-map-marker"></i></span>302 Av Park, New York</li>
-                                                <li><span className="la la-phone"><i className="fa fa-phone" aria-hidden="true"></i></span><a href="#">(234) 0200 17813</a></li>
-                                                <li><span className="la la-envelope-o"><i className="fa fa-envelope" aria-hidden="true"></i></span><a href="#">lisa@gmail.com</a></li>
+                                                <li><span className="la la-map-marker"><i className="fa fa-map-marker"></i></span>{property.Location}</li>
+                                                <li><span className="la la-envelope-o"><i className="fa fa-envelope" aria-hidden="true"></i></span>{property.seller_number}</li>
                                             </ul>
                                             <div className="agent-contact-form-sidebar">
                                                 <h4>Request Inquiry</h4>
